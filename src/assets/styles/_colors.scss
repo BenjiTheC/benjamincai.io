@@ -1,0 +1,23 @@
+// primary schema
+$dark: #121212;
+$pumpkin-orange: #EE6C4D;
+$white: #FFFFFF;
+
+// used in SASS
+$primary: $pumpkin-orange;
+$bg: $dark;
+$contrast-text: $white;
+
+// emphasis of text - opacity
+$high-emphasis: 87%;
+$medium-emphasis: 60%;
+$disabled: 38%;
+
+// elevation overlay
+$elevation-colors: (#4d4242, #1e1e1e, #232323, #252525, #272727, #2c2c2c, #2f2f2f, #333333, #353535, #383838);
+@for $i from 1 to length($elevation-colors) {
+    $suffix: $i - 1;
+    .elevate-#{$suffix} {
+        background-color: nth($elevation-colors, $i);
+    }
+}

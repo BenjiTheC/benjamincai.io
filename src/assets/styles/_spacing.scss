@@ -1,0 +1,51 @@
+$sides: (top, left, bottom, right);
+
+@for $space from 1 to 8 {
+    @each $side in $sides {
+        .m-#{$side}-#{$space} {
+            margin-#{$side}: #{$space}rem !important;
+        }
+
+        .p-#{$side}-#{$space} {
+            padding-#{$side}: #{$space}rem !important;
+        }
+    }
+
+    .m-#{$space} {
+        margin: #{$space}rem !important;
+    }
+
+    .p-#{$space} {
+        padding: #{$space}rem !important;
+    }
+
+    .m-vertical-#{$space} {
+        margin-top: #{$space}rem !important;
+        margin-bottom: #{$space}rem !important;
+    }
+
+    .m-horizontal-#{$space} {
+        margin-left: #{$space}rem !important;
+        margin-right: #{$space}rem !important;
+    }
+
+    .p-vertical-#{$space} {
+        padding-top: #{$space}rem !important;
+        padding-bottom: #{$space}rem !important;
+    }
+
+    .p-horizontal-#{$space} {
+        padding-left: #{$space}rem !important;
+        padding-right: #{$space}rem !important;
+    }
+}
+
+@each $side in $sides {
+    .m-#{$side}-auto {
+        margin-#{$side}: auto;
+    }
+}
+
+.m-auto {
+    margin: auto;
+}

@@ -1,0 +1,41 @@
+$directions: (row, column);
+
+@each $direction in $directions {
+    .flex-#{$direction} {
+        display: flex;
+        flex-direction: $direction;
+    }
+}
+
+$justify-options: (flex-start, flex-end, center, space-between, space-around, space-evenly);
+
+@each $justify-op in $justify-options {
+    .justify-#{$justify-op} {
+        justify-content: $justify-op;
+    }
+}
+
+$align-options: (flex-start, flex-end, center, stretch, baseline);
+@each $align-op in $align-options {
+    .align-#{$align-op} {
+        align-items: $align-op;
+    }
+}
+
+.flex-cc {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-ss {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}

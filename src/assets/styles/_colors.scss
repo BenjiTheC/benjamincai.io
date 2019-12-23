@@ -1,3 +1,4 @@
+@import './responsive';
 // primary schema
 $dark: #121212;
 $pumpkin-orange: #EE6C4D;
@@ -14,10 +15,22 @@ $medium-emphasis: 60%;
 $disabled: 38%;
 
 // elevation overlay
-$elevation-colors: (#4d4242, #1e1e1e, #232323, #252525, #272727, #2c2c2c, #2f2f2f, #333333, #353535, #383838);
-@for $i from 1 to length($elevation-colors) {
+$elevation-colors: (#121212, #1e1e1e, #232323, #252525, #272727, #2c2c2c, #2f2f2f, #333333, #353535, #383838);
+@for $i from 1 through length($elevation-colors) {
     $suffix: $i - 1;
     .elevate-#{$suffix} {
-        background-color: nth($elevation-colors, $i);
+        background-color: nth($elevation-colors, $i) !important;
+    }
+
+    .elevate-mobile-#{$suffix} {
+        @include mobile-screen {
+            background-color: nth($list: $elevation-colors, $n: $i) !important;
+        }
+    }
+
+    .elevate-desktop-#{$suffix} {
+        @include desktop-screen {
+            background-color: nth($list: $elevation-colors, $n: $i) !important;
+        }
     }
 }

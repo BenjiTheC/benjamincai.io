@@ -1,9 +1,25 @@
+@import './responsive';
+
 $directions: (row, column);
 
 @each $direction in $directions {
     .flex-#{$direction} {
         display: flex;
         flex-direction: $direction;
+    }
+
+    .flex-mobile-#{$direction} {
+        @include mobile-screen {
+            display: flex;
+            flex-direction: $direction;
+        }
+    }
+
+    .flex-desktop-#{$direction} {
+        @include desktop-screen {
+            display: flex;
+            flex-direction: $direction;
+        }
     }
 }
 
@@ -13,12 +29,36 @@ $justify-options: (flex-start, flex-end, center, space-between, space-around, sp
     .justify-#{$justify-op} {
         justify-content: $justify-op;
     }
+
+    .justify-mobile-#{$justify-op} {
+        @include mobile-screen {
+            justify-content: $justify-op;
+        }
+    }
+
+    .justify-desktop-#{$justify-op} {
+        @include desktop-screen {
+            justify-content: $justify-op;
+        }
+    }
 }
 
 $align-options: (flex-start, flex-end, center, stretch, baseline);
 @each $align-op in $align-options {
     .align-#{$align-op} {
         align-items: $align-op;
+    }
+
+    .align-mobile-#{$align-op} {
+        @include mobile-screen {
+            align-items: $align-op;
+        }
+    }
+
+    .align-desktop-#{$align-op} {
+        @include desktop-screen {
+            align-items: $align-op;
+        }
     }
 }
 

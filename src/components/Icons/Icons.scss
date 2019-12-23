@@ -1,0 +1,26 @@
+@import 'flexbox';
+@import 'spacing';
+@import 'colors';
+
+$tab-icon-box-length: 3.8rem;
+$side-icon-box-length: 2.5rem;
+
+.icon-box {
+    @extend .flex-row;
+    @extend .flex-cc;
+    svg {
+        width: auto;
+        height: 95%;
+        opacity: $high-emphasis;
+    }
+}
+
+.tab {
+    width: $tab-icon-box-length;
+    height: $tab-icon-box-length;
+}
+
+.side {
+    width: $side-icon-box-length;
+    height: $side-icon-box-length;
+}

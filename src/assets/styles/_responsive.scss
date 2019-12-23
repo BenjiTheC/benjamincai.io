@@ -1,0 +1,26 @@
+// @mixins that provide responsive styles wrapper
+// https://glennmccomb.com/articles/useful-sass-scss-media-query-mixins-for-bootstrap/
+
+$breakpoints: (
+    mobile: 400px,
+    tablet: 768px,
+    desktop: 1200px,
+);
+
+@mixin mobile-screen {
+    @media only screen and (max-width: (map-get($breakpoints, tablet) - 1px)) {
+        @content;
+    }
+}
+
+@mixin tablet-screen {
+    @media only screen and (min-width: map-get($breakpoints, mobile)) and (max-width: (map-get($breakpoints, tablet) - 1px)) {
+        
+    }
+}
+
+@mixin desktop-screen {
+    @media only screen and (min-width: map-get($breakpoints, tablet)) {
+        @content;        
+    }
+}

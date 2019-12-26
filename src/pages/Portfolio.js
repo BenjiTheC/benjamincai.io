@@ -1,6 +1,11 @@
 import React from 'react';
-import { Nav } from '../components';
+import { Nav, Hero } from '../components';
 
 export default function Portfolio() {
-    return <Nav />;
+    return (
+        <>
+            <Nav />
+            <Hero />
+        </>
+    );
 }

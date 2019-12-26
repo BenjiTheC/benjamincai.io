@@ -1,69 +1,153 @@
 @import 'colors';
 @import 'spacing';
 @import 'typography';
+@import 'flexbox';
+@import 'responsive';
 
-$nav-height: 7.5rem;
-
-%highlight {
-    @extend .elevate-2;
-    color: $primary;
+@mixin get-height($heights-map) {
+    @include mobile-screen {
+        height: map-get($heights-map, mobile);
+    }
+    @include desktop-screen {
+        height: map-get($heights-map, desktop);
+    }
 }
+
+@mixin get-width($heights-map) {
+    @include mobile-screen {
+        width: map-get($heights-map, mobile);
+    }
+    @include desktop-screen {
+        width: map-get($heights-map, desktop);
+    }
+}
+
+@mixin get-size($heights-map) {
+    @include get-height($heights-map);
+    @include get-width($heights-map);
+}
+
+$nav-heights: (
+    mobile: 5rem,
+    desktop: 8rem
+);
+
+$brand-heights: (
+    mobile: map-get($nav-heights, mobile) - 1rem,
+    desktop: map-get($nav-heights, desktop) - 3rem,
+);
 
 header {
     position: fixed;
     top: 0;
     left: 0;
+    @include get-height($nav-heights);
     width: 100%;
     background-color: $bg;
-    nav {
-        width: 100%;
-        height: $nav-height;
-    }
 }
 
 .website-brand {
-    width: 100%;
-    height: auto;
-    max-width: 15rem;
+    @include get-height($brand-heights);
+    width: auto;
     opacity: $high-emphasis;
-}
-
-.selected {
-    @extend %highlight;
-    .selected-bottom-bar {
-        visibility: visible !important;
-        background-color: $primary !important;
-    }
-}
-
-.nav-tab {
-    height: $nav-height;
-    width: $nav-height;
-    &:hover {
-        @extend %highlight;
-    }
-    div.icon-box {
-        @extend .m-top-auto;
-    }
-    .tab-desc {
-        font-family: $open-sans-condensed;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 1.8rem;
-    }
-    .selected-bottom-bar {
-        $bar-height: 0.26rem;
-        border-top-left-radius: $bar-height;
-        border-top-right-radius: $bar-height;
-        width: 100%;
-        height: $bar-height;
-        visibility: hidden;
-    }
 }
 
 .contacts-group > * {
     @extend .m-horizontal-1;
+    @include mobile-screen {
+        $tiny-space: 0.4rem;
+        margin-left: $tiny-space !important;
+        margin-right: $tiny-space !important;
+    }
     &:hover {
         color: $primary;
     }
+}
+
+.menu-button {
+    color: inherit;
+    opacity: $high-emphasis;
+    @include desktop-screen {
+        display: none;
+    }
+}
+
+// Tabs Group styling
+%highlight {
+    @extend .elevate-5;
+    color: $primary;
+}
+
+.selected {
+    @extend %highlight;
+    @include mobile-screen {
+        border-right: 0.3rem solid $primary;
+    }
+    .selected-bottom-bar {
+        @include desktop-screen {
+            width: 100%;
+            height: 0.2rem;
+            border-top-left-radius: 0.2rem;
+            border-top-right-radius: 0.2rem;
+        }
+        background-color: $primary;
+    }
+}
+
+.modal-mobile {
+    @include mobile-screen {
+        position: fixed;
+        z-index: 99999;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    @include desktop-screen {
+        display: none;
+    }
+}
+
+.tabs-group {
+    position: fixed;
+    top: 0;
+    @include mobile-screen {
+        left: auto;
+        right: 0;
+        border-radius: 0.5rem !important;
+    }
+    @include desktop-screen {
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $bg;
+    }
+    .nav-tab {
+        @include get-size($nav-heights);
+        @include mobile-screen {
+            width: auto !important;
+            border-top: 0.25px solid nth($elevation-colors, 7);
+            border-bottom: 0.25px solid nth($elevation-colors, 7);
+            &:first-child {
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+            }
+            &:last-child {
+                border-bottom-left-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
+            }
+        }
+        .tab-desc {
+            font-family: $open-sans-condensed;
+            font-weight: bold;
+            font-size: 2rem;
+            opacity: $high-emphasis;
+        }
+    }
+}
+
+.space-filler {
+    @include get-height($nav-heights);
+    width: 100%;
+    z-index: -1;
 }

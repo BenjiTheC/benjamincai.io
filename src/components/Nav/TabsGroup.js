@@ -2,18 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import { AboutMe, Projects, Resume } from '../Icons';
+import './Nav.scss';
 
-const Tab = ({ tabIcon, tabDesc, tabLink }) => {
+const Tab = ({ tabIcon, tabDesc, tabLink, onClose }) => {
     const { pathname, hash } = useLocation();
     const fullPath = `${pathname}${hash}`;
 
+    const onLinkClick = () => window.innerWidth < 768 && onClose();
+
     return (
-        <Link to={tabLink}>
-            <div className={`nav-tab flex-column align-center ${tabLink === fullPath && 'selected'}`}>
-                {tabIcon()}
-                <div className={'m-bottom-auto tab-desc'}>{tabDesc}</div>
-                <div className={'selected-bottom-bar'} />
-            </div>
+        <Link
+            to={tabLink}
+            className={`p-mobile-horizontal-1 flex-mobile-row flex-desktop-column justify-desktop-center align-center nav-tab ${
+                tabLink === fullPath ? 'selected' : ''
+            }`}
+            role={'button'}
+            onClick={onLinkClick}
+        >
+            {tabIcon()}
+            <div className={'m-mobile-left-1 m-desktop-bottom-auto tab-desc'}>{tabDesc}</div>
+            <div className={'selected-bottom-bar'} />
         </Link>
     );
 };
@@ -21,14 +29,22 @@ Tab.propTypes = {
     tabIcon: PropTypes.oneOfType([PropTypes.elementType, PropTypes.object, PropTypes.string]).isRequired,
     tabDesc: PropTypes.string.isRequired,
     tabLink: PropTypes.string.isRequired,
+    onClose: PropTypes.func.isRequired,
 };
 
-export default function TabsGroup() {
+export default function TabsGroup({ style = {}, onClose }) {
     return (
-        <div className={'flex-row align-center'}>
-            <Tab tabIcon={AboutMe} tabDesc={'AboutMe'} tabLink={'/#about-me'} />
-            <Tab tabIcon={Projects} tabDesc={'Projects'} tabLink={'/#projects'} />
-            <Tab tabIcon={Resume} tabDesc={'Resume'} tabLink={'/#resume'} />
-        </div>
+        <>
+            <div role={'presentation'} onClick={() => onClose()} className={'modal-mobile'} />
+            <nav className={'m-mobile-1 flex-row flex-mobile-column elevate-desktop-0 elevate-mobile-2 tabs-group'} style={style}>
+                <Tab tabIcon={AboutMe} tabDesc={'AboutMe'} tabLink={'/#about-me'} onClose={() => onClose()} />
+                <Tab tabIcon={Projects} tabDesc={'Projects'} tabLink={'/#projects'} onClose={() => onClose()} />
+                <Tab tabIcon={Resume} tabDesc={'Resume'} tabLink={'/#resume'} onClose={() => onClose()} />
+            </nav>
+        </>
     );
 }
+TabsGroup.propTypes = {
+    style: PropTypes.object,
+    onClose: PropTypes.func.isRequired,
+};

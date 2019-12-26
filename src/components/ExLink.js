@@ -10,5 +10,5 @@ export default function ExLink({ to, children }) {
 }
 ExLink.propTypes = {
     to: PropTypes.string.isRequired,
-    children: PropTypes.oneOfType([PropTypes.elementType, PropTypes.string]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.elementType, PropTypes.object, PropTypes.string]).isRequired,
 };

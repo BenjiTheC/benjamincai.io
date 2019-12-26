@@ -1,9 +1,7 @@
 @import 'flexbox';
 @import 'spacing';
 @import 'colors';
-
-$tab-icon-box-length: 3.8rem;
-$side-icon-box-length: 2.5rem;
+@import 'responsive';
 
 .icon-box {
     @extend .flex-row;
@@ -16,11 +14,26 @@ $side-icon-box-length: 2.5rem;
 }
 
 .tab {
-    width: $tab-icon-box-length;
-    height: $tab-icon-box-length;
+    @include mobile-screen {
+        $edge-length: 4rem;
+        height: $edge-length;
+        width: $edge-length;
+    }
+    @include desktop-screen {
+        $edge-length: 4.5rem;
+        height: $edge-length;
+        width: $edge-length;
+    }
 }
 
 .side {
-    width: $side-icon-box-length;
-    height: $side-icon-box-length;
+    $edge-length: 3rem;
+    height: $edge-length;
+    width: $edge-length;
+}
+
+.menu {
+    $edge-length: 5rem;
+    height: $edge-length;
+    width: $edge-length;
 }

@@ -74,19 +74,43 @@ $double-sides: (vertical: (top, bottom), horizontal: (left, right));
 }
 
 @each $side in $sides {
-    .m-#{$side}-auto {
-        margin-#{$side}: auto;
-    }
+    @if map-has-key($map: $double-sides, $key: $side) {
+        .m-#{$side}-auto {
+            @each $sub-side in map-get($map: $double-sides, $key: $side) {
+                margin-#{$sub-side}: auto;
+            }
+        }
 
-    .m-mobile-#{$side}-auto {
-        @include mobile-screen {
+        .m-mobile-#{$side}-auto {
+            @include mobile-screen {
+                @each $sub-side in map-get($map: $double-sides, $key: $side) {
+                    margin-#{$sub-side}: auto;
+                }
+            }
+        }
+
+        .m-desktop-#{$side}-auto {
+            @include desktop-screen {
+                @each $sub-side in map-get($map: $double-sides, $key: $side) {
+                    margin-#{$sub-side}: auto;
+                }
+            }
+        }
+    } @else {
+        .m-#{$side}-auto {
             margin-#{$side}: auto;
         }
-    }
-
-    .m-desktop-#{$side}-auto {
-        @include desktop-screen {
-            margin-#{$side}: auto;
+    
+        .m-mobile-#{$side}-auto {
+            @include mobile-screen {
+                margin-#{$side}: auto;
+            }
+        }
+    
+        .m-desktop-#{$side}-auto {
+            @include desktop-screen {
+                margin-#{$side}: auto;
+            }
         }
     }
 }

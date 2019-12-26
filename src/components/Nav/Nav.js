@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import { ReactComponent as WebsiteBrand } from '../../assets/img/website_brand.svg';
 import { GitHub, LinkedIn, Email, Menu } from '../Icons';
 import ExLink from '../ExLink';
@@ -33,11 +33,9 @@ export default function Nav() {
 
     useEffect(() => {
         const onWindowWidthChange = () => {
-            console.log(window.innerWidth);
             if (window.innerWidth < 768 && shouldTabsShow) {
                 setTabsShow(false);
             } else if (window.innerWidth >= 768 && !shouldTabsShow) {
-                console.log('setting tabs to true');
                 setTabsShow(true);
             }
         };
@@ -55,7 +53,7 @@ export default function Nav() {
     return (
         <>
             <header className={'flex-row justify-space-between align-center'}>
-                <Link to={'/'} className={'m-left-1'}>
+                <Link to={'/'} className={'m-left-1'} role={'button'} onClick={() => window.scroll({ top: 0, left: 0 })}>
                     <WebsiteBrand title={'website brand'} className={'website-brand'} />
                 </Link>
                 <div className={'flex-row align-center'}>

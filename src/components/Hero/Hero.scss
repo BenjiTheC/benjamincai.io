@@ -1,0 +1,91 @@
+@import 'colors';
+@import 'typography';
+@import 'responsive';
+@import 'utils';
+
+.benjamin-cai {
+    font-family: $league-spartan;
+    font-weight: bold;
+    text-align: center;
+    opacity: $high-emphasis;
+    @include mobile-screen {
+        font-size: 2.5rem;
+        letter-spacing: 1.65rem;
+    }
+    @include desktop-screen {
+        font-size: 5rem;
+        letter-spacing: 3.8rem;
+    }
+    .last-letter {
+        letter-spacing: 0 !important;
+    }
+}
+
+.hero {
+    position: absolute;
+    width: 100%;
+    height: calc(100vw / 2.4);
+    z-index: -1;
+    background-image: url('../../assets/img/IMG_0887.JPG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(2.5px);
+    opacity: 0.5;
+}
+
+
+$profile-pic-edge: 18rem;
+
+.bio {
+    min-height: calc(100vw / 2.4);
+    max-width: 768px;
+
+    .profile-pic-frame {
+        width: $profile-pic-edge;
+        height: $profile-pic-edge;
+        min-width: $profile-pic-edge;
+        min-height: $profile-pic-edge;
+        @include mobile-screen {
+            display: none;
+        }
+        border-radius: 50%;
+        overflow: hidden;
+        shape-outside: circle();
+        float: left;
+
+        background-image: url('../../assets/img/profile_pic.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 16px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .brief {
+        max-width: 100%;
+        min-height: 100%;
+        font-weight: 300;
+        text-align: justify;
+        text-justify: distribute-all-lines;
+        @include mobile-screen {
+            font-size: 1.5rem;
+            line-height: 1.7rem;
+            letter-spacing: 0.2rem;
+        }
+        @include desktop-screen {
+            font-size: 2.8rem;
+            line-height: 3.4rem;
+            border-radius: 1rem;
+            border-left: 0.25rem solid rgba(255, 255, 255, 0.87);
+            border-right: 0.25rem solid rgba(255, 255, 255, 0.87);
+        }
+
+        a {
+            display: inline;
+            text-decoration: underline;
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}

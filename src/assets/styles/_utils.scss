@@ -1,0 +1,68 @@
+@mixin get-height($heights-map) {
+    @include mobile-screen {
+        height: map-get($heights-map, mobile);
+    }
+    @include desktop-screen {
+        height: map-get($heights-map, desktop);
+    }
+}
+
+@mixin get-width($heights-map) {
+    @include mobile-screen {
+        width: map-get($heights-map, mobile);
+    }
+    @include desktop-screen {
+        width: map-get($heights-map, desktop);
+    }
+}
+
+@mixin get-size($heights-map) {
+    @include get-height($heights-map);
+    @include get-width($heights-map);
+}
+
+@mixin get-min-height($heights-map) {
+    @include mobile-screen {
+        min-height: map-get($heights-map, mobile);
+    }
+    @include desktop-screen {
+        min-height: map-get($heights-map, desktop);
+    }
+}
+
+@mixin get-min-width($heights-map) {
+    @include mobile-screen {
+        min-width: map-get($heights-map, mobile);
+    }
+    @include desktop-screen {
+        min-width: map-get($heights-map, desktop);
+    }
+}
+
+@mixin get-min-size($heights-map) {
+    @include get-min-height($heights-map);
+    @include get-min-width($heights-map);
+}
+
+@mixin get-max-height($heights-map) {
+    @include mobile-screen {
+        max-height: map-get($heights-map, mobile);
+    }
+    @include desktop-screen {
+        max-height: map-get($heights-map, desktop);
+    }
+}
+
+@mixin get-max-width($heights-map) {
+    @include mobile-screen {
+        max-width: map-get($heights-map, mobile);
+    }
+    @include desktop-screen {
+        max-width: map-get($heights-map, desktop);
+    }
+}
+
+@mixin get-max-size($heights-map) {
+    @include get-max-height($heights-map);
+    @include get-max-width($heights-map);
+}

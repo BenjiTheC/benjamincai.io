@@ -3,29 +3,8 @@
 @import 'typography';
 @import 'flexbox';
 @import 'responsive';
+@import 'utils';
 
-@mixin get-height($heights-map) {
-    @include mobile-screen {
-        height: map-get($heights-map, mobile);
-    }
-    @include desktop-screen {
-        height: map-get($heights-map, desktop);
-    }
-}
-
-@mixin get-width($heights-map) {
-    @include mobile-screen {
-        width: map-get($heights-map, mobile);
-    }
-    @include desktop-screen {
-        width: map-get($heights-map, desktop);
-    }
-}
-
-@mixin get-size($heights-map) {
-    @include get-height($heights-map);
-    @include get-width($heights-map);
-}
 
 $nav-heights: (
     mobile: 5rem,
@@ -41,6 +20,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 999999;
     @include get-height($nav-heights);
     width: 100%;
     background-color: $bg;
@@ -67,6 +47,8 @@ header {
 .menu-button {
     color: inherit;
     opacity: $high-emphasis;
+    background-color: $dark !important;
+    border: 0;
     @include desktop-screen {
         display: none;
     }
@@ -97,7 +79,7 @@ header {
 .modal-mobile {
     @include mobile-screen {
         position: fixed;
-        z-index: 99999;
+        z-index: 99998;
         top: 0;
         left: 0;
         bottom: 0;
@@ -111,6 +93,7 @@ header {
 
 .tabs-group {
     position: fixed;
+    z-index: 99999;
     top: 0;
     @include mobile-screen {
         left: auto;

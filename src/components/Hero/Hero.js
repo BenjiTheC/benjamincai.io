@@ -5,7 +5,7 @@ import './Hero.scss';
 export default function Hero() {
     return (
         <>
-            <h1 className={'m-horizontal-auto p-mobile-top-1 p-desktop-top-2 p-desktop-bottom-1 benjamin-cai'}>
+            <h1 className={'m-horizontal-auto p-mobile-bottom-1 p-desktop-top-2 p-desktop-bottom-1 benjamin-cai'}>
                 Benjamin Ca<span className={'last-letter'}>i</span>
             </h1>
             <div className={'hero'} />

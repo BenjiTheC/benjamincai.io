@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Hero } from '../components';
+import { Nav, Hero, Terminal } from '../components';
 
 export default function Portfolio() {
     return (
@@ -7,8 +7,9 @@ export default function Portfolio() {
             <Nav />
             <Hero />
             <main className={'m-desktop-horizontal-auto'}>
-                <section id={'about-me'}>
+                <section id={'about-me'} className={'p-mobile-horizontal-1 p-desktop-horizontal-2'}>
                     <h2>About Me</h2>
+                    <Terminal />
                 </section>
                 <section id={'projects'}>
                     <h2>Projects</h2>

@@ -1,0 +1,85 @@
+@import 'colors';
+@import 'responsive';
+@import 'typography';
+
+$terminal-window-border-radius: 8px;
+$terminal-menu-button-edge: 14px;
+$terminal-menu-height: 20px;
+
+@mixin terminal-font {
+    font-family: $ubuntu-mono, sans-serif !important;
+    font-size: 1.5rem !important;
+    color: $contrast-text;
+    opacity: $high-emphasis;
+}
+
+.terminal {
+    width: 100%;
+    max-width: 80rem;
+    height: 80rem * 0.618;
+    border-radius: $terminal-window-border-radius;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 16px 0 rgba(0, 0, 0, 0.1);
+    
+    &-menu {
+        @extend .elevate-9;
+        border-top-left-radius: $terminal-window-border-radius;
+        border-top-right-radius: $terminal-window-border-radius;
+        height: $terminal-menu-height;
+        position: relative;
+
+        &-button {
+            width: $terminal-menu-button-edge;
+            height: $terminal-menu-button-edge;
+            border-radius: 50%;
+            position: absolute;
+            top: ($terminal-menu-height - $terminal-menu-button-edge) / 2 ;
+
+            &.close {
+                background-color: #E64C3C;
+                left: $terminal-menu-button-edge * 0.5;
+            }
+
+            &.minimize {
+                background-color: #F0C30F;
+                left: $terminal-menu-button-edge * 2;
+            }
+
+            &.expend {
+                background-color: #2ECB71;
+                left: $terminal-menu-button-edge * 3.5;
+            }
+        }
+    }
+
+    &-window {
+        @extend .elevate-2;
+        height: calc(80rem * 0.618 - 20px);
+        padding: 2px 4px;
+        padding-bottom: 5px;
+        border-bottom-left-radius: $terminal-window-border-radius;
+        border-bottom-right-radius: $terminal-window-border-radius;
+        overflow: auto;
+        &-text-container {
+            word-break: normal;
+            word-wrap: normal;
+            @include desktop-screen {
+                max-width: 85%;
+            }
+            @include terminal-font();
+
+            input {
+                @include terminal-font();
+                width: calc(100% - 10rem);
+                border: 0;
+                background-color: inherit;
+                opacity: $high-emphasis;
+                outline: none;
+                caret-color: $contrast-text;
+            }
+        }
+    }
+
+    .pad {
+        padding-top: 0.4rem;
+    }
+}

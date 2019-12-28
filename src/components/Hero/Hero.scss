@@ -4,17 +4,17 @@
 @import 'utils';
 
 .benjamin-cai {
-    font-family: $league-spartan;
-    font-weight: bold;
+    font-family: $open-sans-condensed, $open-sans, sans-serif;
+    font-weight: 300;
     text-align: center;
     opacity: $high-emphasis;
     @include mobile-screen {
         font-size: 2.5rem;
-        letter-spacing: 1.65rem;
+        letter-spacing: 2.1rem;
     }
     @include desktop-screen {
         font-size: 5rem;
-        letter-spacing: 3.8rem;
+        letter-spacing: 5.1rem;
     }
     .last-letter {
         letter-spacing: 0 !important;

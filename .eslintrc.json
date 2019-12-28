@@ -25,6 +25,7 @@
     ],
     "rules": {
         "prettier/prettier": ["error", { "singleQuote": true }],
+        "consistent-return": "off",
         "strict": 0,
         "no-console": "off",
         "no-unused-vars": "warn",

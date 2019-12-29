@@ -52,7 +52,7 @@ export default function Nav() {
     );
     return (
         <>
-            <header className={'flex-row justify-space-between align-center'}>
+            <header className={'flex-row justify-space-between align-center nav-header'}>
                 <Link to={'/'} className={'m-left-1'} role={'button'} onClick={() => window.scroll({ top: 0, left: 0 })}>
                     <WebsiteBrand title={'website brand'} className={'website-brand'} />
                 </Link>

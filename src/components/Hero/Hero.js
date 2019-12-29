@@ -12,7 +12,7 @@ export default function Hero() {
             <div className={'flex-row align-center m-horizontal-auto bio'}>
                 <div>
                     <div className={'m-2 profile-pic-frame'} />
-                    <div className={'p-1 p-mobile-horizontal-2 brief'}>
+                    <div className={'p-vertical-1 p-horizontal-2 brief'}>
                         My name is Benjamin Cai. I’m a full-stack developer currently based on the New York Area, also a second-year graduate student
                         in <Exlink to={'https://www.stevens.edu/'}>Stevens Institute of Technology</Exlink>, majoring in Software Engineering. My
                         current areas of interests are Cloud(AWS), backend development and Machine Learning.

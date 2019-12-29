@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Octions, { Terminal, Repo, File, MarkGithub, Mail, Grabber } from '@primer/octicons-react';
+import Octions, { Terminal, Repo, File, MarkGithub, Mail, Grabber, Code, Lock } from '@primer/octicons-react';
 import { ReactComponent as LinkedInIcon } from '../../assets/img/linkedin-in-brands.svg';
 import './Icons.scss';
 
@@ -51,5 +51,17 @@ export const Email = () => (
 export const Menu = () => (
     <IconBox type={'menu'}>
         <Octions verticalAlign={VERTICAL_ALIGN} icon={Grabber} size={'small'} />
+    </IconBox>
+);
+
+export const SourceCode = () => (
+    <IconBox type={'side'}>
+        <Octions verticalAlign={VERTICAL_ALIGN} icon={Code} />
+    </IconBox>
+);
+
+export const SourceLock = () => (
+    <IconBox type={'side'}>
+        <Octions verticalAlign={VERTICAL_ALIGN} icon={Lock} />
     </IconBox>
 );

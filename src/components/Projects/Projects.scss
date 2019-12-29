@@ -1,0 +1,113 @@
+@import 'colors';
+@import 'responsive';
+@import 'typography';
+@import 'flexbox';
+
+$src-icon-edge: 4.2rem;
+
+@mixin hoverBefore($content, $color) {
+    font-size: 1.5rem;
+    font-family: $ubuntu-mono;
+    position: absolute;
+    right: $src-icon-edge + 1.5rem;
+    width: max-content;
+    color: $color;
+    content: $content;
+}
+
+.project-list {
+    position: relative;
+}
+
+.project {
+    @extend .elevate-4;
+    @extend .flex-column;
+    border-radius: 0.5rem;
+    min-height: 12rem;
+    max-height: 30rem;
+    &:first-child {
+        margin-top: 0 !important;
+    }
+    &:last-child {
+        margin-bottom: 0 !important;
+    }
+    
+    &-title {
+        position: relative;
+        font-weight: normal;
+        font-family: $open-sans;
+        opacity: $high-emphasis;
+        @include mobile-screen {
+            font-size: 2.2rem;
+        }
+        @include desktop-screen {
+            font-size: 3.8rem;
+        }
+
+        // because the display: flex of parent, display: inline doesn't work here. Keep the title short!
+    }
+
+    &-desc {
+        margin-top: 0.5rem;
+        font-weight: lighter;
+        font-family: $open-sans;
+        opacity: $medium-emphasis;
+        flex-grow: 1;
+        overflow-y: auto;
+        @include mobile-screen {
+            font-size: 1.5rem;
+        }
+        @include desktop-screen {
+            font-size: 1.8rem;
+        }
+    }
+
+    &-techs {
+        font-weight: normal;
+        font-family: $ubuntu-mono;
+        opacity: $high-emphasis;
+        @include mobile-screen {
+            font-size: 1.5rem;
+        }
+        @include desktop-screen {
+            font-size: 1.8rem;
+        }
+
+        .tech-header {
+            font-family: $open-sans;
+            font-weight: normal;
+            opacity: $medium-emphasis;
+        }
+    }
+
+    &-src {
+        @extend .elevate-9;
+        border-radius: 50%;
+        width: $src-icon-edge;
+        height: $src-icon-edge;
+    }
+
+    &-src.avai {
+        color: $contrast-text;
+        opacity: $high-emphasis;
+        &:hover {
+            * {
+                color: $primary;
+                opacity: 1;
+            }
+            filter: brightness(110%);
+            border: 2px solid $primary;
+            &::before {
+                @include hoverBefore('View the source code', $primary);
+            }
+        }
+    }
+
+    &-src.lock {
+        color: $contrast-text;
+        opacity: $disabled;
+        &:hover::before {
+            @include hoverBefore('Source code unavailable', rgba($color: $contrast-text, $alpha: $disabled));
+        }
+    }
+}

@@ -29,7 +29,6 @@ a {
     h#{$i} {
         $cal-base: 6 - $i + 1;
         font-family: $header-font-stack;
-        font-size: #{$cal-base * 1.2}rem;
         font-weight: bold;
     }
 }
@@ -42,9 +41,11 @@ main {
     }
 }
 
-section {
+section[id] {
     margin-top: -8rem;
     padding-top: 8rem;
+    @extend .p-mobile-horizontal-1;
+    @extend .p-desktop-horizontal-2;
     h2 {
         text-align: center;
         text-decoration: underline;
@@ -52,6 +53,7 @@ section {
         opacity: $high-emphasis;
         padding: 1rem;
         margin: 1rem;
+        margin-top: 2rem;
         @include mobile-screen {
             font-size: 2.5rem;
         }

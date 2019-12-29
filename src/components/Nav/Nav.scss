@@ -16,7 +16,7 @@ $brand-heights: (
     desktop: map-get($nav-heights, desktop) - 3rem,
 );
 
-header {
+header.nav-header {
     position: fixed;
     top: 0;
     left: 0;

@@ -29,6 +29,7 @@
         "strict": 0,
         "no-console": "off",
         "no-unused-vars": "warn",
+        "no-nested-ternary": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/jsx-curly-brace-presence": 0,
         "react/forbid-prop-types": 0,

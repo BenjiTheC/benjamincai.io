@@ -30,6 +30,7 @@ a {
         $cal-base: 6 - $i + 1;
         font-family: $header-font-stack;
         font-weight: bold;
+        opacity: $high-emphasis;
     }
 }
 

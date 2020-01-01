@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Hero, Terminal, Projects } from '../components';
+import { Nav, Hero, Terminal, Projects, Resume } from '../components';
 
 export default function Portfolio() {
     return (
@@ -17,6 +17,7 @@ export default function Portfolio() {
                 </section>
                 <section id={'resume'}>
                     <h2>Resume</h2>
+                    <Resume />
                 </section>
             </main>
         </>

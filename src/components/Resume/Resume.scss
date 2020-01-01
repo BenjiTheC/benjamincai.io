@@ -1,0 +1,194 @@
+@import 'colors';
+@import 'responsive';
+@import 'spacing';
+@import 'flexbox';
+@import 'typography';
+
+.resume {
+    @extend .elevate-4;
+    @extend .p-desktop-2;
+    @extend .p-mobile-1;
+    border-radius: 0.5rem;
+    color: $contrast-text;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+
+    * {
+        opacity: $high-emphasis !important;
+    }
+
+    section[id] {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .inner-padding {
+        $inner-padding: 5px;
+        padding-left: $inner-padding !important;
+        padding-right: $inner-padding !important;
+    }
+
+    .content {
+        font-weight: 300;
+    }
+
+    h2 {
+        @extend .inner-padding;
+        padding-top: 5px !important;
+        padding-bottom: 3px !important;
+        font-size: 2rem !important;
+        text-align: left !important;
+        margin: 0 !important;
+        text-decoration: none !important;
+        opacity: $high-emphasis;
+    }
+
+    hr {
+        border: 0;
+        height: 1.5px;
+        background-color: $contrast-text;
+        opacity: $high-emphasis;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .personal-info {
+        @extend .flex-desktop-row, .flex-mobile-column;
+        @extend .justify-space-between, .align-center;
+        @extend .inner-padding;
+
+        h1.full-name {
+            font-family: $open-sans;
+            font-size: 4.5rem !important;
+            @include mobile-screen {
+                text-align: center;
+                font-size: 3rem !important;
+                line-height: 3.3rem !important;
+            }
+
+            .first-name {
+                font-weight: 300;
+            }
+
+            .last-name {
+                font-weight: 600;
+            }
+
+        }
+
+        .contact {
+            line-height: 2.5rem;
+            list-style-type: none;
+            text-align: end;
+            @include mobile-screen {
+                text-align: center;
+            }
+        }
+    }
+    
+    .portfolio {
+        @extend .flex-desktop-row, .flex-mobile-column;
+        @extend .justify-space-evenly, .align-center;
+        @extend .inner-padding;
+
+        @include mobile-screen {
+            > * {
+                margin-top: 5px;
+            }
+        }
+    }
+
+    .education {
+        @extend .inner-padding;
+        @extend .m-vertical-1;
+
+        .school {
+            font-weight: 700;
+        }
+
+        .major {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+        }
+    }
+
+    .skills {
+        @extend .inner-padding;
+
+        &-row {
+            @extend .m-vertical-1
+        }
+
+        &-header {
+            font-weight: 700;
+        }
+    }
+
+    .job {
+        @extend .inner-padding;
+        @extend .m-vertical-1;
+
+        hr {
+            height: 1px;
+        }
+
+        &:last-of-type {
+            hr {
+                display: none;
+            }
+        }
+
+        &-header {
+            font-weight: 700;
+        }
+
+        &-title {
+            font-style: italic;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .location, .duration {
+            text-align: end;
+            @include mobile-screen {
+                text-align: start !important;
+            }
+        }
+
+        &-desc {
+            list-style-position: inside;
+            margin-top: 5px;
+
+            > li {
+                margin-top: 1px;
+                margin-bottom: 1px;
+
+                &:last-child {
+                    margin-bottom: 2px;
+                }
+            }
+        }
+    }
+
+    .side-project {
+        @extend .inner-padding;
+        @extend .m-vertical-1;
+        font-weight: 300;
+
+        &-name {
+            font-weight: 700;
+        }
+
+        &-src {
+            .src-name-header {
+                font-weight: 600;
+            }
+        }
+
+        &-desc {
+            list-style-position: inside;
+            margin-top: 5px;
+        }
+    }
+}

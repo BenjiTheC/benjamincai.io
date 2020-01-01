@@ -27,18 +27,18 @@ $justify-options: (flex-start, flex-end, center, space-between, space-around, sp
 
 @each $justify-op in $justify-options {
     .justify-#{$justify-op} {
-        justify-content: $justify-op;
+        justify-content: $justify-op !important;
     }
 
     .justify-mobile-#{$justify-op} {
         @include mobile-screen {
-            justify-content: $justify-op;
+            justify-content: $justify-op !important;
         }
     }
 
     .justify-desktop-#{$justify-op} {
         @include desktop-screen {
-            justify-content: $justify-op;
+            justify-content: $justify-op !important;
         }
     }
 }
@@ -51,13 +51,13 @@ $align-options: (flex-start, flex-end, center, stretch, baseline);
 
     .align-mobile-#{$align-op} {
         @include mobile-screen {
-            align-items: $align-op;
+            align-items: $align-op !important;
         }
     }
 
     .align-desktop-#{$align-op} {
         @include desktop-screen {
-            align-items: $align-op;
+            align-items: $align-op !important;
         }
     }
 }

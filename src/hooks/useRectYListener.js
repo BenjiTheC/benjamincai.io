@@ -23,5 +23,5 @@ export default function useRectYListener(clientRef) {
         }
     }, [rectY]);
 
-    return rectYOverBaseline;
+    return [rectYOverBaseline, rectY];
 }

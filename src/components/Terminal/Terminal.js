@@ -126,12 +126,17 @@ export default function Terminal() {
     const cursorRef = useRef(null);
     const textContainerRef = useRef(null);
     const [{ cmd, history, cmdsValid }, dispatchCmd] = useReducer(CMD_REDUCER, INIT_CMD_STATE);
-    const startAutoType = useRectYListener(terminalRef);
+    const [startAutoType] = useRectYListener(terminalRef);
 
     useEffect(() => {
         if (textContainerRef.current) {
             const { current: txtCont } = textContainerRef;
+            // const { y: txtContTop } = txtCont.getBoundingClientRect();
+            // console.log(txtContTop);
+            // if (txtContTop > 0 && txtContTop < (2 / 3) * window.innerHeight) {
+            //     console.log('in text cont top changing');
             txtCont.scrollTop = txtCont.scrollHeight;
+            // }
         }
     }, [history]);
 
@@ -146,8 +151,14 @@ export default function Terminal() {
                     dispatchCmd({ type: 'typing', value: tempCmd });
                 } else {
                     dispatchCmd({ type: 'enter', newCmd: tempCmd });
-                    cursorRef.current.focus();
                     clearInterval(autoTyper);
+
+                    if (textContainerRef.current) {
+                        const { y: txtContTop } = textContainerRef.current.getBoundingClientRect();
+                        if (txtContTop > 0 && txtContTop < (2 / 3) * window.innerHeight) {
+                            cursorRef.current.focus();
+                        }
+                    }
                 }
             }, 300);
         }

@@ -18,7 +18,7 @@ Text.propTypes = {
 
 const Prompt = () => (
     <div className={'pad prompt'}>
-        <Text fontWeight={'bold'}>you@benjamin.xyz</Text>
+        <Text fontWeight={'bold'}>you@benjamin.io</Text>
         <Text> | </Text>
         <Text color={'#4CE04B'} fontWeight={'bold'}>
             ~/Portfolio

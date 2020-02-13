@@ -13,7 +13,7 @@ const projectsData = [
         desc:
             "What you are looking at right now. Using latest React and hooks, shit tons of fun building it. Currently it's a pure React front-end and SASS styled website, but I plan to add a back-end for it written in C++.",
         techs: ['React', 'SASS'],
-        src: null,
+        src: 'https://github.com/BenjiTheC/benjamincai.io',
     },
     {
         id: 1,

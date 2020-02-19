@@ -77,8 +77,8 @@ export const sideProjects = [
     },
     {
         id: 1,
-        prjName: 'benjamin.io',
-        prjSrc: '',
+        prjName: 'benjamincai.io',
+        prjSrc: 'https://github.com/BenjiTheC/benjamincai.io',
         prjDesc: ['Built with React, 100% function and hook based project.', 'My personal portfolio site and internt home.'],
     },
 ];

@@ -86,20 +86,22 @@ export default function Resume() {
                 <ul className={'contact'}>
                     <li>Hoboken, NJ, 07030</li>
                     <li>201-221-6187</li>
-                    <li>benjamincaiyh@gmail.com</li>
+                    <li>
+                        <ExLink to={'mailto:benjamincaiyh@gmail.com'}>benjamincaiyh@gmail.com</ExLink>
+                    </li>
                 </ul>
             </div>
             <hr />
             <section className={'portfolio'}>
                 <span>
                     <strong>LinkedIn: </strong>
-                    <ExLink to={'www.linkedin.com/in/benjamin-cai'}>
+                    <ExLink to={'https://www.linkedin.com/in/benjamin-cai'}>
                         <span className={'content'}>www.linkedin.com/in/benjamin-cai</span>
                     </ExLink>
                 </span>
                 <span>
                     <strong>GitHub: </strong>
-                    <ExLink to={'github.com/BenjiTheC'}>
+                    <ExLink to={'https://github.com/BenjiTheC'}>
                         <span className={'content'}>github.com/BenjiTheC</span>
                     </ExLink>
                 </span>

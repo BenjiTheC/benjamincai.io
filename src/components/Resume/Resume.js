@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ExLink from '../ExLink';
+import resumePDF from '../../assets/Resume_BenjaminCai.pdf';
 import { education, professionalExperience, sideProjects } from './resumeData';
 import './Resume.scss';
 
@@ -78,7 +79,7 @@ SideProject.propTypes = {
 
 export default function Resume() {
     return (
-        <div className={'resume'}>
+        <article className={'resume'}>
             <div className={'personal-info'}>
                 <h1 className={'full-name'}>
                     <span className={'first-name'}>Benjamin</span> <span className={'last-name'}>Cai</span>
@@ -147,6 +148,11 @@ export default function Resume() {
                     <SideProject key={id} {...prjProps} />
                 ))}
             </section>
-        </div>
+            <footer className="flex-row justify-flex-end flex-row">
+                <a href={resumePDF} download="Resume_BenjaminCai.pdf" className="elevate-8 flex-row flex-cc download-button">
+                    <p>Download .pdf</p>
+                </a>
+            </footer>
+        </article>
     );
 }

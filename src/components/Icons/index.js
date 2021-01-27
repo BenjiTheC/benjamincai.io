@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Octions, { Terminal, Repo, File, MarkGithub, Mail, Grabber, Code, Lock } from '@primer/octicons-react';
+import { TerminalIcon, RepoIcon, FileIcon, MarkGithubIcon, MailIcon, GrabberIcon, CodeIcon, LockIcon } from '@primer/octicons-react';
 import { ReactComponent as LinkedInIcon } from '../../assets/img/linkedin-in-brands.svg';
 import './Icons.scss';
 
@@ -14,25 +14,25 @@ IconBox.propTypes = {
 
 export const AboutMe = () => (
     <IconBox>
-        <Octions verticalAlign={VERTICAL_ALIGN} icon={Terminal} />
+        <TerminalIcon verticalAlign={VERTICAL_ALIGN} />
     </IconBox>
 );
 
 export const Projects = () => (
     <IconBox>
-        <Octions verticalAlign={VERTICAL_ALIGN} icon={Repo} />
+        <RepoIcon verticalAlign={VERTICAL_ALIGN} />
     </IconBox>
 );
 
 export const Resume = () => (
     <IconBox>
-        <Octions verticalAlign={VERTICAL_ALIGN} icon={File} />
+        <FileIcon verticalAlign={VERTICAL_ALIGN} />
     </IconBox>
 );
 
 export const GitHub = () => (
     <IconBox type={'side'}>
-        <Octions verticalAlign={VERTICAL_ALIGN} icon={MarkGithub} />
+        <MarkGithubIcon verticalAlign={VERTICAL_ALIGN} />
     </IconBox>
 );
 
@@ -44,24 +44,24 @@ export const LinkedIn = () => (
 
 export const Email = () => (
     <IconBox type={'side'}>
-        <Octions verticalAlign={VERTICAL_ALIGN} icon={Mail} />
+        <MailIcon verticalAlign={VERTICAL_ALIGN} />
     </IconBox>
 );
 
 export const Menu = () => (
     <IconBox type={'menu'}>
-        <Octions verticalAlign={VERTICAL_ALIGN} icon={Grabber} size={'small'} />
+        <GrabberIcon verticalAlign={VERTICAL_ALIGN} size={'small'} />
     </IconBox>
 );
 
 export const SourceCode = () => (
     <IconBox type={'side'}>
-        <Octions verticalAlign={VERTICAL_ALIGN} icon={Code} />
+        <CodeIcon verticalAlign={VERTICAL_ALIGN} />
     </IconBox>
 );
 
 export const SourceLock = () => (
     <IconBox type={'side'}>
-        <Octions verticalAlign={VERTICAL_ALIGN} icon={Lock} />
+        <LockIcon verticalAlign={VERTICAL_ALIGN} />
     </IconBox>
 );

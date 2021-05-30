@@ -2,7 +2,7 @@ export const education = [
     {
         id: 0,
         school: 'Stevens Institute of Technology',
-        graduation: 'MAY 2020',
+        graduation: 'DEC 2020',
         major: 'Software Engineering',
         degree: 'Master of Science',
         gpa: '4.0 / 4.0',

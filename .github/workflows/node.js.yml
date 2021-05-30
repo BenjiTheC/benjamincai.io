@@ -7,6 +7,9 @@ on:
   push:
     branches: [ master ]
 
+env:
+  SASS_PATH: node_modules:src/assets/styles
+
 jobs:
   build:
 

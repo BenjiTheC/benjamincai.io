@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import 'colors';
 @import 'responsive';
 @import 'typography';
@@ -32,7 +33,7 @@ $terminal-menu-height: 20px;
             height: $terminal-menu-button-edge;
             border-radius: 50%;
             position: absolute;
-            top: ($terminal-menu-height - $terminal-menu-button-edge) / 2 ;
+            top: math.div($terminal-menu-height - $terminal-menu-button-edge, 2);
 
             &.close {
                 background-color: #E64C3C;
